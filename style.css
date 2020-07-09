@@ -186,11 +186,11 @@ video {
   font-size: 1vw;
 }
 
-.rulePara {
+.listPara {
   list-style-type: none;
 }
 
-.rulePara li {
+.listPara li {
   padding-top: 15px;
 }
 
@@ -198,4 +198,17 @@ video {
   width: 50%;
   height: auto;
   margin: 2vw 25%;
+}
+
+#crewImg {
+  width: 50%;
+  height: auto;
+  margin: 2vw 25%;
+  filter: drop-shadow(2px 2px #803052);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+#playerList {
+  list-style-type: none;
 }
