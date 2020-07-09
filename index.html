@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A roll and write style game">
+    <meta name="keywords" content="roll, write, game, space, force, 2150">
+    <meta name="author" content="Will Actual">
+    <meta name="viewport" content="width:device-width; initial-scale:1.0;">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Space Force 2150</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Modak&family=Montserrat+Subrayada&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- ****** Video ****** -->
+    <div class="video_contain">
+      <video autoplay muted loop id="spacey">
+        <!-- https://www.pexels.com/@pressmaster -->
+        <source src="media/spacey2.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+
+    <!-- ****** Sidebar ****** -->
+    <div id="spaceNav" class="sidenav">
+      <a href="javascript:on('story');" id="storyBtn"><i class="fa fa-grav"></i>&emsp;Story</a>
+      <a href="javascript:on('players');" id="playersBtn"><i class="fa fa-group"></i>&emsp;Players</a>
+      <a href="javascript:on('rules');" id="rulesBtn"><i class="fa fa-ravelry"></i>&emsp;Rules</a>
+      <a href="javascript:on('gameboard');" id="gameboardBtn"><i class="fa fa-map-o"></i>&emsp;Game Board</a>
+    </div>
+
+    <!-- ****** Download ****** -->
+    <a id="downloadBtn" target="_blank" href="files/space_force_2150.pdf" download>Download Game</a>
+
+    <!-- ****** Title ****** -->
+    <section id="title">Space Force 2150</section>
+    <!-- https://freesvg.org/retro-rocket -->
+    <img src="media/ss.png" alt="spaceship" id="spaceshipImg">
+
+    <!-- ****** Information ****** -->
+    <!-- **** Story **** -->
+    <div id="story" onclick="off('story')">
+      <div class="text">
+        After embarking on a resupply delivery from Mars to the new colony on Titan, you and your crew aboard the USS Wayfarer are coming through the Asteroid Belt when the ship is struck with an asteroid and takes serious damage.<br /><br />None of the crew is injured, but the ship on the other hand is in need of substantial repairs.<br /><br />Luckily, the supplies you are carrying will be plenty for the repairs necessary to fix up the ship and get you the rest of the way to Titan.<br /><br />Space travel is fraught with dangers, and the cold emptiness won’t be easy.<br /><br />You will face road blocks along the way but there are also perks that will make you more successful.<br /><br /><div>Good luck traveler!</div>
+        <br /><br /><br />
+        <span class="closeTxt">Click anywhere to close story</span>
+      </div>
+    </div>
+
+    <!-- **** Players **** -->
+    <div id="players" onclick="off('players')">
+      <div class="text">
+        Executive Officer (X0) – expends an oxygen to give another character an extra turn<br /><br />
+        Master Engineer – extra roll on repair checks<br /><br />
+        Navigator – can view and choose to re-draw upcoming events<br /><br />
+        Security Officer – chance to block alien encounter<br /><br />
+        Cargo Master – add additional 1 to max fuel capacity (7total) and 2 to supply capacity (14 total)<br /><br />
+        Robot – Choose one of the other characters to play as before each turn
+        <br /><br /><br /><br />
+        <span class="closeTxt">Click anywhere to close player list</span>
+      </div>
+    </div>
+
+    <!-- **** Rules **** -->
+    <div id="rules" onclick="on('rules')">
+      <div class="text">
+        Resources:
+        <ul>
+          <li>Fuel</li>
+          <li>Oxygen</li>
+          <li>Food</li>
+          <li>Water</li>
+        </ul><br />
+        Internal
+        <ul class="rulePara">
+          <li>During the Internal Phase of each round, each player starts with 2 Oxygen, which are used to execute actions on board the ship. ((Moving across the ship, or interacting with ship systems for repairs))</li>
+          <li>During the internal phase, players can decide amongst themselves how to spend Oxygen points based on the situation. When all players have completed their actions, the game progresses to the External Phase of the Round.</li>
+        </ul><br /><br />
+        External
+        <ul class="rulePara">
+          <li>During the External Phase of the round, the players navigate the ship towards Titan.</li>
+          <li>During each round, the team will roll one six-sided die to determine movement.</li>
+          <li>The ship then moves the number of spaces shown on the die.</li>
+          <li>Some spaces will stop movement regardless of how many spaces are rolled.</li>
+          <li>After movement, the team will reveal an event card.</li>
+          <li>The event card will present the players with an opportunity/hazard.</li>
+          <li>Following the instructions on the card, the players will resolve the event, and then progress into the next round’s Internal Phase.</li>
+        </ul><br /><br />
+        <span class="closeTxt">Click anywhere to see more rules</span>
+      </div>
+    </div>
+
+    <div id="rules2" onclick="on('rules')">
+      <div class="text">
+        One round - the completion of both the internal phase and external phase.<br /><br />
+        Fuel
+        <ul>
+          <li>1 Fuel moves the ship one die roll. Ex. Roll a 3 move 3 spaces
+          Oxygen Points</li>
+        </ul><br />
+        Oxygen Points
+        <ul>
+          <li>2 Oxygen points per player per turn (Exception: See Executive Officer)</li>
+          <li>No max storage (player must keep track)</li>
+          <li>You do not need to use both oxygen points, but the maximum number of actions per turn is 2.</li>
+          <li>Team collectively shares oxygen, refilling from the Oxygen Storage of the ship. ((If you only use 1, you only need to refill 1))</li>
+        </ul><br />
+        Supplies
+        <ul>
+          <li>Max storage is 12 units</li>
+          <li>At the end of each round, 1 Supply is removed from supply storage. ((This represents feeding and maintaining the crew and baseline systems.</li>
+        </ul>
+        <br /><br /><br /><br />
+        <span class="closeTxt">Click anywhere to close rules</span>
+      </div>
+    </div>
+
+    <!-- **** Game Board **** -->
+    <div id="gameboard" onclick="on('gameboard')">
+      <!-- <div class="text"> -->
+        <img src="media/internalMap.png" alt="spaceship" id="mapImg"> <br>
+
+        <span class="closeTxt" id="gameTxt">Click anywhere to view external map</span>
+      <!-- </div> -->
+    </div>
+
+    <!-- ****** JavaScript ****** -->
+    <script>
+      let ruleCount = 0;
+      let gameCount = 0;
+      function on(ele) {
+        document.getElementById("title").style.display = "none";
+        document.getElementById("spaceshipImg").style.display = "none";
+
+        switch(ele) {
+          case "story":
+            document.getElementById("story").style.display = "block";
+            break;
+
+          case "players":
+            document.getElementById("players").style.display = "block";
+            break;
+
+          case "rules":
+            if (ruleCount === 0) {
+              document.getElementById("rules").style.display = "block";
+              ruleCount++;
+            } else if (ruleCount === 1) {
+              document.getElementById("rules").style.display = "none";
+              document.getElementById("rules2").style.display = "block";
+              ruleCount++;
+            } else {
+              document.getElementById("title").style.display = "block";
+              document.getElementById("spaceshipImg").style.display = "block";
+              document.getElementById("rules").style.display = "none";
+              document.getElementById("rules2").style.display = "none";
+              ruleCount = 0;
+            }
+            break;
+
+          case "gameboard":
+          if (gameCount === 0) {
+            document.getElementById("gameboard").style.display = "block";
+            gameCount++;
+          } else if (gameCount === 1) {
+            document.getElementById("mapImg").src = "media/externalMap.png";
+            document.getElementById("gameTxt").textContent = "Click anywhere to close gameboard";
+            // document.getElementById("gameboard").style.display = "none";
+            // document.getElementById("gameboard").style.display = "block";
+            gameCount++;
+          } else {
+            document.getElementById("title").style.display = "block";
+            document.getElementById("spaceshipImg").style.display = "block";
+            document.getElementById("mapImg").src = "media/internalMap.png";
+            document.getElementById("gameTxt").textContent = "Click anywhere to view external map";
+            document.getElementById("gameboard").style.display = "none";
+            // document.getElementById("rules2").style.display = "none";
+            gameCount = 0;
+          }
+            // document.getElementById("gameboard").style.display = "block";
+            break;
+        }
+      }
+
+      function off(ele) {
+        document.getElementById("title").style.display = "block";
+        document.getElementById("spaceshipImg").style.display = "block";
+
+        switch(ele) {
+          case "story":
+            document.getElementById("story").style.display = "none";
+            break;
+
+          case "players":
+            document.getElementById("players").style.display = "none";
+            break;
+
+          case "rules":
+            document.getElementById("rules").style.display = "none";
+            break;
+
+          case "gameboard":
+            document.getElementById("gameboard").style.display = "none";
+            break;
+        }
+
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,201 @@
+:root {
+  --clr-1: #303A4C;
+  --clr-2: #52678C;
+  --clr-3: #6AAFD8;
+  --clr-4: #198BCB;
+  --clr-5: #803052;
+  --clr-6: rgba(48,58,76,0.3); /*#303A4C*/
+  --clr-7: rgba(82,103,140,0.3); /*#52678C*/
+  --clr-8: rgba(106,175,216,0.3); /*#6AAFD8*/
+  --clr-9: rgba(25,139,203,0.3); /*#198BCB*/
+  --clr-10: rgba(128,48,82,0.3);  /*#803052*/
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+/*Video*/
+.video_contain {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    min-height: 50%;
+    min-width: 50%;
+    opacity: 0.8;
+}
+
+/*SideNav Bar*/
+#spaceNav a {
+  position: absolute;
+  left: -150px;
+  transition: 0.3s;
+  padding: 15px;
+  /*width: 100px;*/
+  width: 190px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#spaceNav a:hover {
+  left: 0;
+}
+
+#storyBtn {
+  bottom: 200px;
+  background-color: var(--clr-7);
+}
+
+#playersBtn {
+  bottom: 140px;
+  background-color: var(--clr-8);
+}
+
+#rulesBtn {
+  bottom: 80px;
+  background-color: var(--clr-9);
+}
+
+#gameboardBtn {
+  bottom: 20px;
+  background-color: var(--clr-10);
+  filter: alpha(opacity=50);
+}
+
+#downloadBtn {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 15px;
+  border-radius: 15px;
+  /*z-index: 3;*/
+  background-color: #43638A;
+  box-shadow: 6px 6px 10px black;
+  cursor: pointer;
+
+  font-family: 'Montserrat Subrayada', sans-serif;
+  font-size: 1.3vw;
+  text-shadow: 4px 4px 3px #803052;
+  text-decoration: none;
+  color: #FFF;
+}
+
+#title {
+  position: absolute;
+  margin-top: 20vh;
+  top: 1vmax;
+  left: 50%;
+  padding: 1vw;
+  transform: translate(-50%);
+  /*box-shadow: 4px 4px 15px black;*/
+  /*background-color: var(--clr-6);*/
+
+  font-family: 'Modak';
+  font-size: 3.5vw;
+  color: #fff;
+  text-shadow: 6px 6px 10px black;
+}
+
+#spaceshipImg {
+  position: absolute;
+  margin-top: 10vh;
+  width: auto;
+  height: 70%;
+  top: 1vmax;
+  left: 50%;
+  /*padding: 1vw;*/
+  transform: translate(-50%);
+  z-index: -1;
+}
+
+#story, #players, #rules, #rules2, #gameboard {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 2;
+  cursor: pointer;
+  /*transition: .5s ease;*/
+}
+
+.text {
+  color: white;
+  font-size: 2vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  font-family: 'Bitter', serif;
+  text-align: left;
+  text-shadow: 4px 4px 6px #803052;
+
+}
+
+.closeTxt {
+  position: relative;
+  display: inline;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: var(--clr-6);
+  font-family: sans-serif;
+  font-size: 1.5vw;
+  color: #FFF;
+  /*margin-left: 0;*/
+}
+
+.text div {
+  font-family: 'Montserrat Subrayada', sans-serif;
+  text-align: center;
+}
+
+#rules .text, #rules2 .text {
+  font-size: 1vw;
+}
+
+.rulePara {
+  list-style-type: none;
+}
+
+.rulePara li {
+  padding-top: 15px;
+}
+
+#mapImg {
+  width: 50%;
+  height: auto;
+  margin: 2vw 25%;
+}
