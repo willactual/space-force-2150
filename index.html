@@ -28,6 +28,7 @@
       <a href="javascript:on('players');" id="playersBtn"><i class="fa fa-group"></i>&emsp;Players</a>
       <a href="javascript:on('rules');" id="rulesBtn"><i class="fa fa-ravelry"></i>&emsp;Rules</a>
       <a href="javascript:on('gameboard');" id="gameboardBtn"><i class="fa fa-map-o"></i>&emsp;Game Board</a>
+      <a href="javascript:on('howToPlay');" id="howToPlayBtn"><i class="fa fa-book"></i>&emsp;How to Play</a>
     </div>
 
     <!-- ****** Download ****** -->
@@ -69,20 +70,102 @@
     </div>
 
     <!-- **** Rules **** -->
-    <div id="rules" onclick="on('rules')">
+    <div id="rules" onclick="off('rules')">
       <div class="text">
-        Resources:
+        One round - the completion of both the internal phase and external phase.<br /><br />
+        Fuel
         <ul>
-          <li>Fuel</li>
-          <li>Oxygen</li>
-          <li>Food</li>
-          <li>Water</li>
+          <li>1 Fuel moves the ship one die roll. Ex. Roll a 3 move 3 spaces</li>
         </ul><br />
+        Oxygen Points
+        <ul>
+          <li>4 Oxygen per player per Round (Exception: See Executive Officer)</li>
+          <li>No max storage</li>
+          <li>You do not need to use all oxygen points, but the maximum number of actions per turn is 4.</li>
+          <li>Team collectively shares oxygen, refilling from the Oxygen Storage of the ship. ((If you only use 1, you only need to refill 1))</li>
+        </ul><br />
+        Supplies
+        <ul>
+          <li>Max storage is 12 units</li>
+          <li>At the end of each round, 1 Supply is removed from supply storage. ((This represents feeding and maintaining the crew and baseline systems.</li>
+        </ul><br />
+        Hull Points
+        <ul>
+          <li>Represents the structural integrity of the ship</li>
+          <li>Max is 10 points</li>
+          <li>Can be repair via spacewalk (see above)</li>
+          <li>If Hull Points reach 0, the ship is destroyed, and the game ends</li>
+        </ul>
+        <br /><br /><br /><br />
+        <span class="closeTxt">Click anywhere to close rules</span>
+      </div>
+    </div>
+
+    <!-- **** Game Board **** -->
+    <div id="gameboard" onclick="off('gameboard')">
+      <!-- <div class="text"> -->
+        <img src="media/gameBoard.png" alt="spaceship" id="mapImg"> <br>
+
+        <span class="closeTxt" id="gameTxt">Click anywhere to close gameboard</span>
+      <!-- </div> -->
+    </div>
+
+    <!-- **** How to Play **** -->
+    <div id="howToPlay" onclick="on('howToPlay')">
+      <div class="text">
         Internal
         <ul class="listPara">
-          <li>During the Internal Phase of each round, each player starts with 2 Oxygen, which are used to execute actions on board the ship. ((Moving across the ship, or interacting with ship systems for repairs))</li>
-          <li>During the internal phase, players can decide amongst themselves how to spend Oxygen points based on the situation. When all players have completed their actions, the game progresses to the External Phase of the Round.</li>
+          <li>During the Internal Phase of each round, each player starts with 4 Oxygen, which are used to execute actions on board the ship.</li>
+          <li>Players may expend Oxygen for actions in any order, working as a team is key.((Moving across the ship, or interacting with ship systems for repairs))</li>
+          <li>Actions cost 1 Oxygen each:
+            <ul>
+              <li>Moving between numbered sections of the ship that are connected via hallways</li>
+              <li>Repairing doors between sections or ship modules (ie Turrets, Cockpit etc.)
+                <ul>
+                  <li>To repair a Door or Ship module, Spend one Oxygen and then Roll d6.
+                    <ul>
+                      <li>On a 1 or 2 – the repair roll fails.</li>
+                      <li>On a 3 or 4 – the repair is incomplete (gives a +1 bonus to next repair roll).</li>
+                      <li>On a 5 or 6 – the repair is complete.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>Use Section bonuses (1 Oxygen spent in certain zones will give a repeatable benefit)
+              </li>
+            </ul>
+          </li>
         </ul><br /><br />
+        <span class="closeTxt">Click anywhere to see more rules</span>
+      </div>
+    </div>
+
+    <div id="howToPlay2" onclick="on('howToPlay')">
+      <div class="text">
+        Section bonuses
+        <ul class="listPara">
+          <li>Turret: Gives +1 to rolls for Security Officer in External Phase</li>
+          <li>Cockpit: Allows Navigator to discard/redraw Normal encounter card 1x per turn</li>
+          <li>Medical Bay: Gives d6 Oxygen to Ship Oxygen</li>
+          <li>Cargo Bay 1: Gives d6 Supplies to Ship Supplies</li>
+          <li>Cargo Bay 2: Gives d3 Fuel to Ship Fuel</li>
+          <li>Dormitories: Gives d3 Supplies to Ship Supplies (not repeatable</li>
+          <li>Lounge: Additional Bonus to XO leadership rolls</li>
+          <li>Exit Ramp: Spacewalk to repair Hull roll d6
+            <ul>
+              <li>1 – repair fails</li>
+              <li>2-4 – repair 1 hull for 2 supplies</li>
+              <li>5 – repair 1 Hull for 1 Supply</li>
+              <li>6 – repair 2 Hull for 1 Supply</li>
+            </ul>
+          </li>
+        </ul><br /><br />
+        <span class="closeTxt">Click anywhere to see more rules</span>
+      </div>
+    </div>
+
+    <div id="howToPlay3" onclick="on('howToPlay')">
+      <div class="text">
         External
         <ul class="listPara">
           <li>During the External Phase of the round, the players navigate the ship towards Titan.</li>
@@ -97,38 +180,40 @@
       </div>
     </div>
 
-    <div id="rules2" onclick="on('rules')">
+    <div id="howToPlay4" onclick="on('howToPlay')">
       <div class="text">
-        One round - the completion of both the internal phase and external phase.<br /><br />
-        Fuel
-        <ul>
-          <li>1 Fuel moves the ship one die roll. Ex. Roll a 3 move 3 spaces
-          Oxygen Points</li>
-        </ul><br />
-        Oxygen Points
-        <ul>
-          <li>2 Oxygen points per player per turn (Exception: See Executive Officer)</li>
-          <li>No max storage (player must keep track)</li>
-          <li>You do not need to use both oxygen points, but the maximum number of actions per turn is 2.</li>
-          <li>Team collectively shares oxygen, refilling from the Oxygen Storage of the ship. ((If you only use 1, you only need to refill 1))</li>
-        </ul><br />
-        Supplies
-        <ul>
-          <li>Max storage is 12 units</li>
-          <li>At the end of each round, 1 Supply is removed from supply storage. ((This represents feeding and maintaining the crew and baseline systems.</li>
-        </ul>
-        <br /><br /><br /><br />
-        <span class="closeTxt">Click anywhere to close rules</span>
+        Phase Sequence
+        <ol>
+          <li>Roll a d6 for movement, moving the ship forward the number of spaces shown on the die. Major event spaces (Shaded spaces with numbers) will stop movement regardless of remaining moves on the die.</li>
+          <li>Draw an event card and resolve the text on the card, making rolls as instructed. If your movement was stopped by Major Event space, resolve the Major Encounter Card with the same number.</li>
+          <li>Expend daily supplies. At the end of each External Round, spend 1 Supply from the Ship Supply. ((This represents use of supplies to keep crew alive for the round.)) If there are no Supplies left on the ship, proceed to “Ship Damage” and roll on the table, representing the crew disassembling parts of the ship to survive.</li>
+        </ol>
+        <br /><br />
+        <span class="closeTxt">Click anywhere to see more rules</span>
       </div>
     </div>
 
-    <!-- **** Game Board **** -->
-    <div id="gameboard" onclick="off('gameboard')">
-      <!-- <div class="text"> -->
-        <img src="media/gameBoard.png" alt="spaceship" id="mapImg"> <br>
-
-        <span class="closeTxt" id="gameTxt">Click anywhere to close gameboard</span>
-      <!-- </div> -->
+    <div id="howToPlay5" onclick="on('howToPlay')">
+      <div class="text">
+        Ship Damage<br />
+        In the event of the ship taking damage:
+        <ul class="listPara">
+          <li>If damage is specified as Hull Damage, reduce Hull by the number of points. If the Hull Reaches 0, the ship is destroyed and the game ends.</li>
+          <li>If the Damage is specified to a specific ship module, that module’s bonuses cannot be used again until repaired. If a damaged ship module is damaged again, reduce Hull Points by 1 Damage.</li>
+          <li>
+            If Damage is not specified, roll a d6 and consult the following:
+            <ul>
+              <li>1 – 2 Damage to Hull</li>
+              <li>2 – 1 Damage to Hull</li>
+              <li>3 – Damage Cockpit</li>
+              <li>4 – Damage Turret</li>
+              <li>5 – Damage Engine</li>
+              <li>6 – Damage Ship Stores (Roll d6 again, on a 1-3 lose 2 Oxygen, on a 4-6 lose 1 Supply)</li>
+            </ul>
+          </li>
+        </ul><br /><br />
+        <span class="closeTxt">Click anywhere to see more rules</span>
+      </div>
     </div>
 
     <!-- ****** JavaScript ****** -->
@@ -178,24 +263,63 @@
             break;
 
           case "rules":
-            if (ruleCount === 0) {
+            // if (ruleCount === 0) {
               document.getElementById("rules").style.display = "block";
-              ruleCount++;
-            } else if (ruleCount === 1) {
-              document.getElementById("rules").style.display = "none";
-              document.getElementById("rules2").style.display = "block";
-              ruleCount++;
-            } else {
-              document.getElementById("title").style.display = "block";
-              document.getElementById("spaceshipImg").style.display = "block";
-              document.getElementById("rules").style.display = "none";
-              document.getElementById("rules2").style.display = "none";
-              ruleCount = 0;
-            }
+          //     ruleCount++;
+          //   } else if (ruleCount === 1) {
+          //     document.getElementById("rules").style.display = "none";
+          //     document.getElementById("rules2").style.display = "block";
+          //     ruleCount++;
+          //   } else {
+          //     document.getElementById("title").style.display = "block";
+          //     document.getElementById("spaceshipImg").style.display = "block";
+          //     document.getElementById("rules").style.display = "none";
+          //     document.getElementById("rules2").style.display = "none";
+          //     ruleCount = 0;
+          //   }
             break;
 
           case "gameboard":
               document.getElementById("gameboard").style.display = "block";
+            break;
+
+          case "howToPlay":
+            if (ruleCount === 0) {
+              document.getElementById("howToPlay").style.display = "block";
+              ruleCount++;
+            } else if (ruleCount === 1) {
+              document.getElementById("howToPlay").style.display = "none";
+              document.getElementById("howToPlay2").style.display = "block";
+              ruleCount++;
+            } else if (ruleCount === 2) {
+              document.getElementById("howToPlay").style.display = "none";
+              document.getElementById("howToPlay2").style.display = "none";
+              document.getElementById("howToPlay3").style.display = "block";
+              ruleCount++;
+            } else if (ruleCount === 3) {
+              document.getElementById("howToPlay").style.display = "none";
+              document.getElementById("howToPlay2").style.display = "none";
+              document.getElementById("howToPlay3").style.display = "none";
+              document.getElementById("howToPlay4").style.display = "block";
+              ruleCount++;
+            } else if (ruleCount === 4) {
+              document.getElementById("howToPlay").style.display = "none";
+              document.getElementById("howToPlay2").style.display = "none";
+              document.getElementById("howToPlay3").style.display = "none";
+              document.getElementById("howToPlay4").style.display = "none";
+              document.getElementById("howToPlay5").style.display = "block";
+              ruleCount++;
+            } else {
+              document.getElementById("title").style.display = "block";
+              document.getElementById("spaceshipImg").style.display = "block";
+              document.getElementById("howToPlay").style.display = "none";
+              document.getElementById("howToPlay2").style.display = "none";
+              document.getElementById("howToPlay3").style.display = "none";
+              document.getElementById("howToPlay4").style.display = "none";
+              document.getElementById("howToPlay5").style.display = "none";
+              ruleCount = 0;
+            }
+            // document.getElementById("howToPlay").style.display = "block";
             break;
         }
       }
@@ -219,6 +343,9 @@
 
           case "gameboard":
             document.getElementById("gameboard").style.display = "none";
+            break;
+          case "howToPlay":
+            document.getElementById("howToPlay").style.display = "none";
             break;
         }
 
