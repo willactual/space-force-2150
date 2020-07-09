@@ -195,25 +195,7 @@
             break;
 
           case "gameboard":
-            if (gameCount === 0) {
               document.getElementById("gameboard").style.display = "block";
-              gameCount++;
-            } else if (gameCount === 1) {
-              document.getElementById("mapImg").src = "media/externalMap.png";
-              document.getElementById("gameTxt").textContent = "Click anywhere to close gameboard";
-              // document.getElementById("gameboard").style.display = "none";
-              // document.getElementById("gameboard").style.display = "block";
-              gameCount++;
-            } else {
-              document.getElementById("title").style.display = "block";
-              document.getElementById("spaceshipImg").style.display = "block";
-              document.getElementById("mapImg").src = "media/internalMap.png";
-              document.getElementById("gameTxt").textContent = "Click anywhere to view external map";
-              document.getElementById("gameboard").style.display = "none";
-              // document.getElementById("rules2").style.display = "none";
-              gameCount = 0;
-            }
-            // document.getElementById("gameboard").style.display = "block";
             break;
         }
       }
