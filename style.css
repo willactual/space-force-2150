@@ -195,9 +195,11 @@ video {
 }
 
 #mapImg {
-  width: 50%;
+  width: 100%;
   height: auto;
-  margin: 2vw 25%;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  /*margin: 2vw 25%;*/
 }
 
 #crewImg {
