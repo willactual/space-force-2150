@@ -1,10 +1,11 @@
 :root {
-  --clr-1: #303A4C;
+  --clr-1: #44526B;
   --clr-2: #52678C;
   --clr-3: #6AAFD8;
   --clr-4: #198BCB;
   --clr-5: #803052;
-  --clr-6: rgba(48,58,76,0.3); /*#303A4C*/
+  --clr-6: rgba(68,82,107,0.3); /*#303A4C*/
+  /*--clr-6: rgba(48,58,76,0.9); /*#303A4C*/
   --clr-7: rgba(82,103,140,0.3); /*#52678C*/
   --clr-8: rgba(106,175,216,0.3); /*#6AAFD8*/
   --clr-9: rgba(25,139,203,0.3); /*#198BCB*/
@@ -66,21 +67,27 @@ video {
 }
 
 #storyBtn {
+  bottom: 260px;
+  background-color: var(--clr-6);
+}
+
+#playersBtn {
   bottom: 200px;
   background-color: var(--clr-7);
 }
 
-#playersBtn {
+#rulesBtn {
   bottom: 140px;
   background-color: var(--clr-8);
 }
 
-#rulesBtn {
+#gameboardBtn {
   bottom: 80px;
   background-color: var(--clr-9);
+  filter: alpha(opacity=50);
 }
 
-#gameboardBtn {
+#howToPlayBtn {
   bottom: 20px;
   background-color: var(--clr-10);
   filter: alpha(opacity=50);
@@ -133,7 +140,7 @@ video {
   z-index: -1;
 }
 
-#story, #players, #rules, #rules2, #gameboard {
+#story, #players, #rules, #rules2, #gameboard, #howToPlay, #howToPlay2, #howToPlay3, #howToPlay4, #howToPlay5 {
   position: fixed;
   display: none;
   width: 100%;
@@ -182,15 +189,15 @@ video {
   text-align: center;
 }
 
-#rules .text, #rules2 .text {
-  font-size: 1vw;
+#rules .text, #howToPlay .text, #howToPlay2 .text, #howToPlay3 .text, #howToPlay4 .text, #howToPlay5 .text {
+  font-size: 1.5vw;
 }
 
-.listPara {
+.listPara, #howToPlay ul li ul, #howToPlay2 ul li ul, .listPara ul {
   list-style-type: none;
 }
 
-.listPara li {
+.listPara li, #howToPlay4 ol li {
   padding-top: 15px;
 }
 
