@@ -110,8 +110,12 @@ video {
   text-shadow: 4px 4px 3px #803052;
   text-decoration: none;
   color: #FFF;
-  animation: dwnBtn 3s ease infinite;
-  /*background-image: radial-gradient(white -200%, #43638A 0%);*/
+  /*animation: dwnBtn 3s ease infinite;*/
+  background-image: radial-gradient(white -200%, #43638A 0%);
+}
+
+#downloadBtn:hover {
+  animation: dwnBtn 2s ease infinite;
 }
 
 #title {
@@ -225,29 +229,29 @@ video {
 }
 
 @keyframes dwnBtn {
-  0% {background-image: radial-gradient(white 0%, #43638A 150%); }
+  0% {background-image: radial-gradient(#438A46 -200%, #43638A 0%);}
 
-  5% {background-image: radial-gradient(white -20%, #43638A 135%);}
-  10% {background-image: radial-gradient(white -40%, #43638A 120%);}
-  15% {background-image: radial-gradient(white -60%, #43638A 105%);}
-  20% {background-image: radial-gradient(white -80%, #43638A 90%);}
-  25% {background-image: radial-gradient(white -100%, #43638A 75%);}
-  30% {background-image: radial-gradient(white -120%, #43638A 60%);}
-  35% {background-image: radial-gradient(white -140%, #43638A 45%);}
-  40% {background-image: radial-gradient(white -160%, #43638A 30%);}
-  45% {background-image: radial-gradient(white -180%, #43638A 15%);}
+  5% {background-image: radial-gradient(#438A46 -180%, #43638A 15%);}
+  10% {background-image: radial-gradient(#438A46 -160%, #43638A 30%);}
+  15% {background-image: radial-gradient(#438A46 -140%, #43638A 45%);}
+  20% {background-image: radial-gradient(#438A46 -120%, #43638A 60%);}
+  25% {background-image: radial-gradient(#438A46 -100%, #43638A 75%);}
+  30% {background-image: radial-gradient(#438A46 -80%, #43638A 90%);}
+  35% {background-image: radial-gradient(#438A46 -60%, #43638A 105%);}
+  40% {background-image: radial-gradient(#438A46 -40%, #43638A 120%);}
+  45% {background-image: radial-gradient(#438A46 -20%, #43638A 135%);}
 
-  50% {background-image: radial-gradient(white -200%, #43638A 0%);}
+  50% {background-image: radial-gradient(#438A46 0%, #43638A 150%);}
 
-  55% {background-image: radial-gradient(white -180%, #43638A 15%);}
-  60% {background-image: radial-gradient(white -160%, #43638A 30%);}
-  65% {background-image: radial-gradient(white -140%, #43638A 45%);}
-  70% {background-image: radial-gradient(white -120%, #43638A 60%);}
-  75% {background-image: radial-gradient(white -100%, #43638A 75%);}
-  80% {background-image: radial-gradient(white -80%, #43638A 90%);}
-  85% {background-image: radial-gradient(white -60%, #43638A 105%);}
-  90% {background-image: radial-gradient(white -40%, #43638A 120%);}
-  95% {background-image: radial-gradient(white -20%, #43638A 135%);}
+  55% {background-image: radial-gradient(#438A46 -20%, #43638A 135%);}
+  60% {background-image: radial-gradient(#438A46 -40%, #43638A 120%);}
+  65% {background-image: radial-gradient(#438A46 -60%, #43638A 105%);}
+  70% {background-image: radial-gradient(#438A46 -80%, #43638A 90%);}
+  75% {background-image: radial-gradient(#438A46 -100%, #43638A 75%);}
+  80% {background-image: radial-gradient(#438A46 -120%, #43638A 60%);}
+  85% {background-image: radial-gradient(#438A46 -140%, #43638A 45%);}
+  90% {background-image: radial-gradient(#438A46 -160%, #43638A 30%);}
+  95% {background-image: radial-gradient(#438A46 -180%, #43638A 15%);}
 
-  100% {background-image: radial-gradient(white 0%, #43638A 150%);}
+  100% {background-image: radial-gradient(#438A46 -200%, #43638A 0%);}
 }
