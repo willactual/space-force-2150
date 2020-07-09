@@ -42,23 +42,29 @@
     <!-- **** Story **** -->
     <div id="story" onclick="off('story')">
       <div class="text">
-        After embarking on a resupply delivery from Mars to the new colony on Titan, you and your crew aboard the USS Wayfarer are coming through the Asteroid Belt when the ship is struck with an asteroid and takes serious damage.<br /><br />None of the crew is injured, but the ship on the other hand is in need of substantial repairs.<br /><br />Luckily, the supplies you are carrying will be plenty for the repairs necessary to fix up the ship and get you the rest of the way to Titan.<br /><br />Space travel is fraught with dangers, and the cold emptiness won’t be easy.<br /><br />You will face road blocks along the way but there are also perks that will make you more successful.<br /><br /><div>Good luck traveler!</div>
+        After embarking on a resupply delivery from Mars to the new colony on Titan, you and your crew aboard a Wayfarer class supply ship.<br /><br />As your ship is coming through the Asteroid Belt when the ship is struck with an asteroid and takes serious damage.<br /><br />None of the crew is injured, but the ship on the other hand is in need of substantial repairs.<br /><br />Luckily, the supplies you are carrying will be plenty for the repairs necessary to fix up the ship and get you the rest of the way to Titan.<br /><br />Space travel is fraught with dangers, and the cold emptiness won’t be easy.<br /><br />You will face road blocks along the way but there are also perks that will make you more successful.<br /><br /><div>Good luck traveler!</div>
         <br /><br /><br />
         <span class="closeTxt">Click anywhere to close story</span>
       </div>
     </div>
 
     <!-- **** Players **** -->
-    <div id="players" onclick="off('players')">
+    <div id="players" onclick="on('players')">
+      <img src="media/crew3.png" alt="crew scene" id="crewImg">
       <div class="text">
-        Executive Officer (X0) – expends an oxygen to give another character an extra turn<br /><br />
-        Master Engineer – extra roll on repair checks<br /><br />
-        Navigator – can view and choose to re-draw upcoming events<br /><br />
-        Security Officer – chance to block alien encounter<br /><br />
-        Cargo Master – add additional 1 to max fuel capacity (7total) and 2 to supply capacity (14 total)<br /><br />
-        Robot – Choose one of the other characters to play as before each turn
-        <br /><br /><br /><br />
-        <span class="closeTxt">Click anywhere to close player list</span>
+        Each player may choose from the following occupations: (Only one of each occupation may be chosen)
+        <ul class="listPara">
+          <li>Executive Officer (X0)
+            <ul id="playerList">
+              <li>The XO may expend one Oxygen to give an order to another character</li>
+              <li>The ordered character completes the action regardless of remaining Oxygen. For example:
+                <ul>
+                  <li>The Navigator has used all 4 Oxygen, and made it back to the Cockpit, but did not have enough Energy to activate the Module Bonus. The XO may expend 1 of their Oxygen to order the Navigator to activate the Module.</li>
+                </ul></li>
+            </ul>
+          </li>
+        </ul><br /><br /><br /><br />
+        <span class="closeTxt" id="playerTxt">Click anywhere to view next player</span>
       </div>
     </div>
 
@@ -73,12 +79,12 @@
           <li>Water</li>
         </ul><br />
         Internal
-        <ul class="rulePara">
+        <ul class="listPara">
           <li>During the Internal Phase of each round, each player starts with 2 Oxygen, which are used to execute actions on board the ship. ((Moving across the ship, or interacting with ship systems for repairs))</li>
           <li>During the internal phase, players can decide amongst themselves how to spend Oxygen points based on the situation. When all players have completed their actions, the game progresses to the External Phase of the Round.</li>
         </ul><br /><br />
         External
-        <ul class="rulePara">
+        <ul class="listPara">
           <li>During the External Phase of the round, the players navigate the ship towards Titan.</li>
           <li>During each round, the team will roll one six-sided die to determine movement.</li>
           <li>The ship then moves the number of spaces shown on the die.</li>
@@ -129,6 +135,7 @@
     <script>
       let ruleCount = 0;
       let gameCount = 0;
+      let playerCount = 0;
       function on(ele) {
         document.getElementById("title").style.display = "none";
         document.getElementById("spaceshipImg").style.display = "none";
@@ -139,7 +146,35 @@
             break;
 
           case "players":
-            document.getElementById("players").style.display = "block";
+            if (playerCount === 0) {
+              document.getElementById("players").style.display = "block";
+              playerCount++;
+            } else if (playerCount === 1) {
+              document.querySelector(".listPara").innerHTML = `<li>Engineer<ul id="playerList"><li>The Engineer is able to repair modules and Hull Points more efficiently.</li><li>The Engineer may re-roll any failed Repair check. Note:<ul><li>Bonuses accumulated due to failed rolls are not applied.</li></ul></li></ul></li>`;
+              // document.getElementById("playerTxt").textContent = "Click anywhere to view next player";
+              playerCount++;
+            } else if (playerCount === 2) {
+              document.querySelector(".listPara").innerHTML = `<li>Navigator<ul id="playerList"><li>The Navigator can use the Cockpit module to anticipate future events.</li><li>If the Navigator ends the Internal Phase in the Cockpit, the Navigator may expend Oxygen to activate the Cockpit Module.</li><li>The Cockpit Module allows the Navigator to look at the next normal Event Card (Not Major Events).</li><li>The Navigator may then decide to keep the event card, and resolve it as normal, or discard the event card and draw a replacement. Note:<ul><li>This replacement must be kept and resolved.</li></ul></li></ul></li>`;
+              playerCount++;
+            } else if (playerCount === 3) {
+              document.querySelector(".listPara").innerHTML = `<li>Security Officer<ul id="playerList"><li>If the Security officer ends the Internal Phase on the Turret, the Security Officer may choose to activate the Turret Module.</li><li>The Turret Module gives a +1 bonus to rolls that involve firing the ships weapons (at an Enemy Spacecraft or Asteroid).</li></ul></li>`;
+              playerCount++;
+            } else if (playerCount === 4) {
+              document.querySelector(".listPara").innerHTML = `<li>Cargo Master<ul id="playerList"><li>The Cargo Master has a passive bonus that adds an additional 1 to max fuel capacity (7total) and 2 to supply capacity (14 total)</li></ul></li>`;
+              playerCount++;
+            } else if (playerCount === 5) {
+              document.querySelector(".listPara").innerHTML = `<li>Robot<ul id="playerList"><li>At the beginning of each Internal Phase, before any Oxygen is expended, the Robot may choose any of the other characters, (even those not in play), and execute the Internal Phase as that character.</li></ul></li>`;
+              document.getElementById("playerTxt").textContent = "Click anywhere to close player list";
+              playerCount++;
+            } else {
+              document.getElementById("title").style.display = "block";
+              document.getElementById("spaceshipImg").style.display = "block";
+              document.getElementById("playerTxt").textContent = "Click anywhere to view next player";
+              document.getElementById("players").style.display = "none";
+              document.querySelector(".listPara").innerHTML = `<li>Executive Officer (X0)<ul id="playerList"><li>The XO may expend one Oxygen to give an order to another character</li><li>The ordered character completes the action regardless of remaining Oxygen. For example:<ul><li>The Navigator has used all 4 Oxygen, and made it back to the Cockpit, but did not have enough Energy to activate the Module Bonus. The XO may expend 1 of their Oxygen to order the Navigator to activate the Module.</li></ul></li></ul></li>`;
+              playerCount = 0;
+            }
+            // document.getElementById("players").style.display = "block";
             break;
 
           case "rules":
@@ -160,24 +195,24 @@
             break;
 
           case "gameboard":
-          if (gameCount === 0) {
-            document.getElementById("gameboard").style.display = "block";
-            gameCount++;
-          } else if (gameCount === 1) {
-            document.getElementById("mapImg").src = "media/externalMap.png";
-            document.getElementById("gameTxt").textContent = "Click anywhere to close gameboard";
-            // document.getElementById("gameboard").style.display = "none";
-            // document.getElementById("gameboard").style.display = "block";
-            gameCount++;
-          } else {
-            document.getElementById("title").style.display = "block";
-            document.getElementById("spaceshipImg").style.display = "block";
-            document.getElementById("mapImg").src = "media/internalMap.png";
-            document.getElementById("gameTxt").textContent = "Click anywhere to view external map";
-            document.getElementById("gameboard").style.display = "none";
-            // document.getElementById("rules2").style.display = "none";
-            gameCount = 0;
-          }
+            if (gameCount === 0) {
+              document.getElementById("gameboard").style.display = "block";
+              gameCount++;
+            } else if (gameCount === 1) {
+              document.getElementById("mapImg").src = "media/externalMap.png";
+              document.getElementById("gameTxt").textContent = "Click anywhere to close gameboard";
+              // document.getElementById("gameboard").style.display = "none";
+              // document.getElementById("gameboard").style.display = "block";
+              gameCount++;
+            } else {
+              document.getElementById("title").style.display = "block";
+              document.getElementById("spaceshipImg").style.display = "block";
+              document.getElementById("mapImg").src = "media/internalMap.png";
+              document.getElementById("gameTxt").textContent = "Click anywhere to view external map";
+              document.getElementById("gameboard").style.display = "none";
+              // document.getElementById("rules2").style.display = "none";
+              gameCount = 0;
+            }
             // document.getElementById("gameboard").style.display = "block";
             break;
         }
